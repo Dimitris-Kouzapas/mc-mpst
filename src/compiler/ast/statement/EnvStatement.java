@@ -3,6 +3,14 @@ package compiler.ast.statement;
 import java.io.File;
 import java.io.IOException;
 
+
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+//import java.io.FileInputStream;
+//import java.io.IOException;
+
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -112,15 +120,30 @@ public class EnvStatement extends Statement {
 		return flag;
 	}
 
-	private static String resource(String path) {
-		String data = "";
+	private String resource(String path) {
+//		String data = "";
+//		try {
+//			data = new String(Files.readAllBytes(Paths.get(path)));
+//		}
+//		catch(IOException e) {
+//			e.printStackTrace();
+//		}
+//		return data;
+		InputStream is = this.getClass().getClassLoader().getResourceAsStream(path);
+		InputStreamReader isReader = new InputStreamReader(is);
+		BufferedReader reader = new BufferedReader(isReader);
+
+		StringBuffer sb = new StringBuffer();
+		String str;
 		try {
-			data = new String(Files.readAllBytes(Paths.get(path)));
+			while((str = reader.readLine())!= null)
+				sb.append(str + '\n');
 		}
 		catch(IOException e) {
 			e.printStackTrace();
 		}
-		return data;
+
+		return sb.toString();
 	}
 
 	private void usage(Program p) {
@@ -128,77 +151,77 @@ public class EnvStatement extends Statement {
 			switch(arg) {
 				case "-check":
 				case "-verify":
-					p.println(resource("runtime/resources/verify.res"));
+					p.println(resource("resources/verify.res"));
 					return;
 
 				case "-project":
-					p.println(resource("runtime/resources/project.res"));
+					p.println(resource("resources/project.res"));
 					return;
 
 				case "-semantics":
-					p.println(resource("runtime/resources/semantics.res"));
+					p.println(resource("resources/semantics.res"));
 					return;
 
 				case "-graph":
-					p.println(resource("runtime/resources/graph.res"));
+					p.println(resource("resources/graph.res"));
 					return;
 
 				case "-load":
 				case "-file":
-					p.println(resource("runtime/resources/load.res"));
+					p.println(resource("resources/load.res"));
 					return;
 
 				case "-extract":
-					p.println(resource("runtime/resources/extract.res"));
+					p.println(resource("resources/extract.res"));
 					return;
 
 				case "-list":
 				case "-ls":
 				case "-module":
 				case "-modules":
-					p.println(resource("runtime/resources/list.res"));
+					p.println(resource("resources/list.res"));
 					return;
 
 				case "-rm":
-					p.println(resource("runtime/resources/rm.res"));
+					p.println(resource("resources/rm.res"));
 					return;
 
 				case "-history":
 				case "-hs":
-					p.println(resource("runtime/resources/history.res"));
+					p.println(resource("resources/history.res"));
 					return;
 
 				case "-clear":
-					p.println(resource("runtime/resources/clear.res"));
+					p.println(resource("resources/clear.res"));
 					return;
 
 //				case "-temp":
 //				case "-tmp":
-//					p.println(resource("runtime/resources/temp.res"));
+//					p.println(resource("resources/temp.res"));
 //					return;
 
 				case "-verbose":
-					p.println(resource("runtime/resources/verbose.res"));
+					p.println(resource("resources/verbose.res"));
 					return;
 
 //				case "-env":
-//					p.println(resource("runtime/resources/env.res"));
+//					p.println(resource("resources/env.res"));
 //					return;
 
 				case "-exec":
-					p.println(resource("runtime/resources/exec.res"));
+					p.println(resource("resources/exec.res"));
 					break;
 
 				case "-last":
-					p.println(resource("runtime/resources/last.res"));
+					p.println(resource("resources/last.res"));
 					return;
 
 				case "-quit":
 				case "-exit":
-					p.println(resource("runtime/resources/quit.res"));
+					p.println(resource("resources/quit.res"));
 					return;
 			}
-			p.println(resource("runtime/resources/usage.res"));
+			p.println(resource("resources/usage.res"));
 	}
 
 /*	private void list(Program p) {

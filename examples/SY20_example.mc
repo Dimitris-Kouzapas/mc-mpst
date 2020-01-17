@@ -20,9 +20,9 @@
 #
 
 A =	choice
-		a->b:nat; c->a:nat; end
+		a->b:nat; c->a:nat; a->d:nat; end
 	or
-		c->a:nat; a->b:nat; end
+		c->a:nat; a->b:nat; a->d:nat; end
 
 
 #Uncomment below and load the file

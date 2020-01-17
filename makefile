@@ -14,7 +14,7 @@ all:		src/$(MAIN)
 		cd src;\
 		$(JCC) -cp $(CLASSPATH) $(MAIN) -d $(BIN);
 		cd bin;\
-		$(JAR) $(JARFLAGS) $(OUTPUT) manifest.mf Main.class compiler/ action/ automata/ runtime/ org/
+		$(JAR) $(JARFLAGS) $(OUTPUT) manifest.mf Main.class compiler/ action/ automata/ runtime/ org/ resources/
 
 
 
