@@ -18,9 +18,9 @@
 #
 #	at the mc-mpst tool terminal run
 # 2.	load HSFController.mc (loads this file)
+# 3.	ls Controller (prints the unfolded Controller protocol)
 # 3.	semantics Controller (prints the semantic state space of global protocol Controller)
-# 4.	semantics PController (prints the semantic state space of role set PController)
-# 7.	check Controller == PController (checks if global protocol Controller is well-behaved against role set PController)
+# 7.	check Controller (checks if global protocol Controller is well-behaved)
 #
 
 let
@@ -44,32 +44,11 @@ in
 	Controller = Controller 1 0 1 0
 
 
-PController = {
-	input2: 	loop. processing!packet; loop,
-	input1:		loop. processing!packet; loop,
-
-	processing:	loop.
-				choice
-					input1?packet; routing!packet ; loop
-				or
-					input2?packet; routing!packet; loop,
-
-	routing:	loop.
-				processing?packet;
-				choice
-					output1!packet; loop
-				or
-					output2!packet ; loop,
-
-	output1: loop. routing?packet; loop,
-	output2: loop. routing?packet; loop
-}
-
 
 #Uncomment below and load the file
 
+#ls Controller
 #semantics Controller
-#semantics PController
-#check Controller == PController
+#check Controller
 
 
