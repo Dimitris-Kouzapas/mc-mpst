@@ -19,8 +19,8 @@
 #	at the mc-mpst tool terminal run
 # 2.	load HSFController.mc (loads this file)
 # 3.	ls Controller (prints the unfolded Controller protocol)
-# 3.	semantics Controller (prints the semantic state space of global protocol Controller)
-# 7.	check Controller (checks if global protocol Controller is well-behaved)
+# 4.	semantics Controller (prints the semantic state space of global protocol Controller)
+# 5.	check Controller (checks if global protocol Controller is well-behaved)
 #
 
 let
