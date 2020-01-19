@@ -110,7 +110,8 @@ public class RecursionNode extends Node {
 
 	@Override
 	Set<Node> nextState(Action action) {
-		return unfold().nextState(action);
+		return body.nextState(action);
+		//return unfold().nextState(action);
 	}
 
 	/***************************************

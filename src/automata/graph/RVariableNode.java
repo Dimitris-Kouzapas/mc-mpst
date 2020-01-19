@@ -93,9 +93,10 @@ public class RVariableNode extends Node {
 
 	@Override
 	Set<Node> nextState(Action action) {
-		new Exception("Fatal Error. Next state operation on unguarded state machine loop variable").printStackTrace();
-		System.exit(-1);
-		return null;
+		return target.nextState(action);
+		//new Exception("Fatal Error. Next state operation on unguarded state machine loop variable").printStackTrace();
+		//System.exit(-1);
+		//return null;
 	}
 
 	/***************************************

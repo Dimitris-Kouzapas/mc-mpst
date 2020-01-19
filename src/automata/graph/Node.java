@@ -8,7 +8,13 @@ import compiler.PrettyPrint;
 import runtime.Stream;
 
 public abstract class Node implements PrettyPrint {
+	private static int _seq = 0;
+	final int seq;
 	Set<String> activeRoles;
+
+	Node() {
+		seq = _seq++;
+	}
 
 	public Node set(Set<String> activeRoles) {
 		this.activeRoles = activeRoles;

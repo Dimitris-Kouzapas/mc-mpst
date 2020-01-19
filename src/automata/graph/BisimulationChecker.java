@@ -58,7 +58,7 @@ public class BisimulationChecker {
 		return true;
 	}
 
-/*	private static class Closure {
+	private static class Closure {
 		//TODO add and do not remove pairs from fullClosure -> after a successfull termination check all pairs for active role equality
 		private Set<ClosurePair> fullClosure;
 		private Set<ClosurePair> closure;
@@ -92,6 +92,7 @@ public class BisimulationChecker {
 			public boolean equals(Object o) {
 				if((o instanceof ClosurePair) == false)
 					return false;
+				//return a.seq == ((ClosurePair) o).a.seq && b.seq == ((ClosurePair) o).b.seq; 
 				return a.equals(((ClosurePair) o).a) && b.equals(((ClosurePair) o).b);
 			}
 			//public String toString() {
@@ -105,9 +106,9 @@ public class BisimulationChecker {
 		//	return s;
 		//}
 	}
-*/
 
-	private static class Closure {
+
+/*	private static class Closure {
 //		private Set<ClosurePair> closure;
 		private MyHashSet<ClosurePair> closure;
 //		private LinkedList<ClosurePair> pool;
@@ -240,7 +241,7 @@ public class BisimulationChecker {
 
 		}
 	}
-
+*/
 
 /*
 	private static class Closure {
