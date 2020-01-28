@@ -1,6 +1,6 @@
 # mc-mpst: A protocol Description Language
 
-This is an implementation of the mixed-choice multiparty session type theory developed in the paper *[Mixed-choice Multiparty Session Types] (submitted to ECOOP '20) by Dimitrios Kouzapas, Anna Philippou, and Nobuko Yoshida.
+This is an implementation of the mixed-choice multiparty session type theory developed in the draft paper *[Mixed-choice Multiparty Session Types]
 
 ## Requirements
 
